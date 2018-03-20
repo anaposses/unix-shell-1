@@ -29,7 +29,8 @@ REPL - _read-evaluate-print_ loop
 
 ### Como funciona
 
-    $ ls -F . 
+
+    $ ls -F \ 
 
 * Terminal espera por algum comando de entrada
 * Para executar uma tarefa, digitar um comando na estrutura: **comando + flag (opções) + argumento**.
@@ -79,5 +80,83 @@ E agora????
 
 # Navegando nos arquivos e diretórios
 
+Para que Nelle possa cumprir seu prazo, ela utilizar do conhecimento na linguagem de linhas de comando para que sua comunicação com o computador seja mais otimizada possível. 
+
+A parte do sistema operacional responsável pelo gerenciamento de arquivos e diretóros e denominado sistema de arquivos. Nos arquivos estão localizados os dados necessários para o funcionamento o computador, e os diretórios, ou também denominados pastas, são os locais onde se encontram esses arquivos. 
+
+Essas pastas e arquivos podem ser manipulados utilizando um terminal. Inicialmente, desejamos descobrir em qual diretório encontra-se o terminal, pois os comandos já discutidos agem nos arquivos de um diretório previamente dado. Podemos digitar o comando pwd (print working directory)
+
+        pwd
+
+ 
+## Organização de diretórios no sistema Unix.
+
+Para entender a saida do comando acima, discutamos como se encontra organizado o sistema de arquivos no sistema Unix. Observemos o sistema de arquivos do computador de Nelle
+
+Imagem computador de Nelle
+
+No topo, encontra-se o **root directory** (diretório raiz), caracterizado pelo primeiro **/**.
+
+No diretório raiz encontram-se outros diretórios, como por exemplo:
+
+* bin
+* data
+* users
+* tmp
+
+Existem portanto dois signficados para a barra /: quando aparece na frente de um arquivo ou diretório, refere-se ao diretório raiz, quando aparece dentro de um nome, significa apenas um separador (ou refere-se que o arquivo/diretório à direta, está localizado no diretório à esquerda).
+
+Dentro da pasta \Users, observamos que existem três usuários: o de Nelle (nelle), e duas pastas referentes a sua colegas Mummy(imhotep) e Wolfram(larry). Tipicamente, ao abrir o terminal de comando, ele iniciará no diretório home. 
+
+###ls
+Novamente, utilizemos o comando de listagem para observar os arquivos e pastas presentem no atual diretório.
+
+        ls
+ 
+ Como observamos, esse comando imprime em tela a lista de arquivos e pastas na tela. Podemos adicionar a seguinte flag para se tornar mais compreensível.
+ 
+        ls -F
+        
+-F caracteriza-se como uma flag que torna evidente que tipo de objeto estamos analisando. Porém, existe uma série de diferentes flags disponíveis para este comando. Podemos descobrí-los e obter descrições por dois comandos diferentes:
+
+        $ ls --help
+        
+        $ man ls
+        
+Não podemos esquecer que tais comandos podem ser pesquisados na internet. [http://www.gnu.org/manual/manual.html]
+
+Flags interessantes:
+
+    $ ls -g
+    
+    $ ls -R
+    
+ Quando tenta-se utilzar de uma flag não existente:
+ 
+    $ ls -j
+
+### man
+
+Tornará o terminal em uma página com a descrição do comando desejado e sua opções, e para alguns casos alguns exemplos. É necessário os botes up e down para navegar pela página. b leva ao início da página, e barra de espaço leva ao final da página. 
+
+/palavra -> busca no man
+
+Para sair, digite q.
+
+##### Exercício 1:
+
+O que as flags -l e -h fazem?
 
 
+##### Exercício 2:
+
+-R : descrição de subdiretórios e subsubdiretórios.
+-t: lista por ordem de modificação.
+
+Em que ordem ls -R -t funciona?
+
+Objetos que nao apresentam barras no fim do nome são arquivos antigos. 
+
+ALém disso, mesmo estando dentro de um determinado diretório, podemos listar o conteudo de outras pastas
+
+    $ ls -F Desktop
