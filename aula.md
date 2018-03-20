@@ -7,13 +7,6 @@
 3. Abrir terminal e se direcionar para o arquivo ~/Desktop/data-shell/
 
 
-You need to download some files to follow this lesson:
-
-    Download data-shell.zip and move the file to your Desktop.
-    Unzip/extract the file (ask your instructor if you need help with this step). You should end up with a new folder called data-shell on your Desktop.
-    Open a terminal and type cd, then press the Enter key. That last step will make sure you start with your home folder as your working directory.
-
-In the lesson, you will find out how to access the data in this folder.
 
     Where to type commands: How to open a new shell
 
