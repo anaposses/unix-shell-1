@@ -1,4 +1,4 @@
-# Passos iniciais
+# Aula 1: The Unix Shell
 
 ## Arquivos para a lição:
 
