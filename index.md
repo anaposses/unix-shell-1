@@ -29,7 +29,7 @@ REPL - _read-evaluate-print_ loop
 
 ### Como funciona
 
-    $ ls -F .
+    $ ls -F . 
 
 * Terminal espera por algum comando de entrada
 * Para executar uma tarefa, digitar um comando na estrutura: **comando + flag (opções) + argumento**.
