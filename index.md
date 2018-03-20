@@ -1,37 +1,83 @@
-## Welcome to GitHub Pages
+# Aula 1: The Unix Shell
 
-You can use the [editor on GitHub](https://github.com/anaposses/unix-shell-1/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+## Arquivos para a lição:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. Download do arquivo data-shell.zip e mover para Desktop.
+2. Descompactar arquivo na mesma pasta.
+3. Abrir terminal e se direcionar para o arquivo ~/Desktop/data-shell/
 
-### Markdown
+## Introdução ao Shell/Terminal
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Em alto nível, computadores realizam 4 procedimentos principais:
 
-```markdown
-Syntax highlighted code block
+* rodam programas
+* guardam dados
+* se comunicam entre si
+* interagem com usuário
 
-# Header 1
-## Header 2
-### Header 3
+Em geral, utilizamos **interfaces gráficas** para indicar quais tarefas desejamos que sejam feitas pela máquina (GUI - Graphical usar interface), sendo possível realizar para **tarefas simples**.  
 
-- Bulleted
-- List
+Porém tarefas mais complexas exigem que tenhamos um maior conhecimento de comando e gramática específicas. 
 
-1. Numbered
-2. List
+Shell/terminal - linguagem simples e interface de linha de comando. 
 
-**Bold** and _Italic_ and `Code` text
+REPL - _read-evaluate-print_ loop
 
-[Link](url) and ![Image](src)
-```
+### Shell
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+É um programa responsável por rodar programas ao invés de realizar seus próprios cálculos. O terminal Unix mais popular é o *Bash* (Stephen Bourne).
 
-### Jekyll Themes
+### Como funciona
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/anaposses/unix-shell-1/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+    $ ls -F .
 
-### Support or Contact
+* Terminal espera por algum comando de entrada
+* Para executar uma tarefa, digitar um comando na estrutura: **comando + flag (opções) + argumento**.
+  * flags começam com - e mudam o comportamento do comando.
+  * o argumento diz onde o comando deve operar
+  * um comando pode conter mais de uma flag e argumentos. 
+* Testar:
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+      $ ls-F
+      
+      $LS
+    
+## Como o terminal sabe o qual é o comando e o que cada flag significa:
+
+Cada comando é um programa alocado em algum lugar do computador, sendo que a shell mantém uma lista de lugares onde procura pelos comandos. Como descrito, o terminal realiza o seguinte loop:
+
+1. Lê o comando de entrada.
+2. Utiliza os espaços para identificar os elementos do código (comando+flag+argumento)
+3. Encontra o programa, no caso ls, executa-o passando pelos suas flags e argumentos.
+4. Imprime em tela o resultado. 
+5. Retorna ao estado de espera por próximo comando. 
+
+**A gramática de um terminal permite combinar ferramentas em pipelines e lidar com um grande volume de dados automaticamente. Sequências de comandos podem ser escritas em scripts, aumentando a reprodutibilidade e  facil repetição. É essencial seu entendimento para comunicação com máquinas remotas e supercomputadores.**
+
+
+## Nelle's Pipeline
+
+Nelle Nemo, uma biologa marinha, acabou de retornar de um levantamento de seis meses no _Giro Pacífico Norte_, onde estava pegando amostras de vida marinha gelatinosa na  _Grande Porção de Lixo do Pacífico_. Ela conseguiu 1520 amostras e agora precisa de:
+
+1. Rodar cada amostra em uma máquina de ensaio que medirá a abundância relativa de 300 proteinas diferentes. Cada saida da máquina para cada amostra é um arquivo com uma linha para cada proteina. 
+
+2. Calcular estaísticas para cada proteina separadamente usando um programa de seu supervisor denominado **goostats**.
+
+3. Anotar os resultados. 
+
+
+Seu supervisor sugeriu **muito** para que ela termine até o fim do mês para que seu paper apareça na revista _Aquatic Goo Letters_.
+
+Projeções:
+
+* Leva aproximadamente 30 minutos para que a máquina de ensaio processo cada amostra. A boa notícia é que leva-se 2 minutos para definir cada uma.
+* Seu laboratório possui 8 máquinas de ensaio que podem ser usadas em paralelo: esse procedimento pode ser realizado em 2 semanas. 
+* Ela precisa rodar o programa goostats: ela necessita entrar com os nomes dos arquivos e clicar enter (total de 1520 ações).
+* 30 segundos por amostra: 12h (assumindo que nova entrada é realizada imediatamente).
+
+E agora????
+
+# Navegando nos arquivos e diretórios
+
+
+
