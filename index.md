@@ -535,16 +535,20 @@ Assumindo que a estrutura de arquivos esteja em um arquivo denominado ‘2016-05
 Qual dos conjuntos de comandos podem alcançar tal objetivo? O que os outros comandos podem fazer?
 
 
-$ cp -r 2016-05-18-data/ 2016-05-20-data/
-$ rm 2016-05-20-data/raw/*
-$ rm 2016-05-20-data/processed/*
+	$ cp -r 2016-05-18-data/ 2016-05-20-data/
+	$ rm 2016-05-20-data/raw/*
+	$ rm 2016-05-20-data/processed/*
 
-$ rm 2016-05-20-data/raw/*
-$ rm 2016-05-20-data/processed/*
-$ cp -r 2016-05-18-data/ 2016-5-20-data/
 
-$ cp -r 2016-05-18-data/ 2016-05-20-data/
-$ rm -r -i 2016-05-20-data/
+
+	$ rm 2016-05-20-data/raw/*
+	$ rm 2016-05-20-data/processed/*
+	$ cp -r 2016-05-18-data/ 2016-5-20-data/
+
+
+
+	$ cp -r 2016-05-18-data/ 2016-05-20-data/
+	$ rm -r -i 2016-05-20-data/
 
 
  
