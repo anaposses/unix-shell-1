@@ -248,6 +248,14 @@ Starting from /Users/amanda/data/, which of the following commands could Amanda 
     cd
     cd ..
 
+##### Exercício:
+
+Using the filesystem diagram below, if pwd displays /Users/thing, what will ls -F ../backup display?
+
+1. ../backup: No such file or directory
+2. 2012-12-01 2013-01-08 2013-01-27
+3. 2012-12-01/ 2013-01-08/ 2013-01-27/
+4. original/ pnas_final/ pnas_sub/
 
 
 
