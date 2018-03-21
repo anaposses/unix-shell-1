@@ -766,5 +766,176 @@ e
 
 	$ wc -l < notes.txt
 
+Vamos entender o que acontece quando criamos uma pipe. Quando um computador roda um programa, ele cria uma processo na memória para manter o software e seu estado atual. Cada processo possui seu canal de entrada denominado stardard input (stdin). Cada processo também possui um canal de saída padrão denominado standard output (stdout). Uma segunda saida denominada standard error (stderr) também existe, sendo responsável por mensagens de erro e diagnóstico, e pertindo usar uma pipe para direcionar a saida de um programa para outro enquanto ainda recebe mensagens de erro no terminal. 
 
+Em situações normais, qualquer coisa que digitamos no teclado é enviado para a shell pelo seu stdin e qualquer coisa produzida pelo stdout. Quando ordenamos que a shell rode um programa, esse cria um novo processo e temporariamente manda qualquer coisa que digitamos no teclado para o processo do stdin e o que o processo envia para stdout vai para a tela. 
+
+Quando rodamos wc -l *.pdb > lengths.txt, o terminal inicia dizendo ao computador para criar um novo processo para rodar o programa wc.  Como demos alguns arquivos como argumentos, wc irá ler esses arquivos ao invés do stdin. E como utilizamos o > para redirecionar nossa saida para um arquivo, o terminal conecta o processo do stdout ao arquivo. 
+
+Mas, se digitarmos wc -l *.pdb | sort -n, o terminal cria dois processos, rodando wc e sort simultaneamente. O stdout de wc se lga diretamente ao stdin do sorte. Se digitarmos wc -l *.pdb | sort -n | head -n 1, abrimos 3 processos. Observemos as imagens abaixo:
+
+IMAGENS
+
+Ao invés de criar programas pesados que fazem muitas coisas diferentes ao mesmo tempo, os programas do Unix focam em criar ferramentas simples que fazem um trabalho bem e que funciona bem com outros similares. Esse modelo de programa é denominado **pipe and filters**(programa que transforma um fluxo de entrada em um fluxo de saida).
+
+Assim como usar 
+
+######## > 
+
+Assim como > redireciona uma saida de um programa, **<** pode redirecionar sua entrada, ou seja, de ler de um arquivo ao invés de um padrão de entrada. Por exemplo, o invés de escrever wc amnonia.pdb, podemos escrever : wc < amnonia.pdb. No primeiro caso, wc obtem um argumento qual arquivo será aberto. No segundo, wc não nenhum argumento, então ele lê do stdin, mas dizemos para o terminal enviar o conteudo de amnonia.pdb para o stdin de wc. 
+
+##### Exercicio
+
+Mude para o diretório data-shell:
+
+Qual a diferença entre:
+
+	$ wc -l notes.txt
+
+
+
+	$ wc -l < notes.txt
+
+Exemplo:
+
+	$ wc -l
+
+	this
+
+	is
+
+	a test
+
+	Ctrl-D 
+
+##### Exercicio
+
+O comando uniq remove linhas adjacentes suplicadas. Por exemplo, data-shell/data/salmon.txt contém: 
+
+	coho
+
+	coho
+
+	steelhead
+
+	coho
+
+	steelhead
+
+	steelhead
+
+Rodando o comando no arquivo obtemos:
+
+coho
+
+steelhead
+
+coho
+
+steelhead
+
+Por que o comando apenas elimina linhas adjacentes duplicadas? (pense em grandes conjuntos de dados). Qual comando podemos combinar em uma pipe para eliminar todos. 
+
+##### Exercicio
+
+Um arquivo chamado data-shell/data/animals.txt contém os dados:
+
+	2012-11-05,deer
+	2012-11-05,rabbit
+	2012-11-05,raccoon
+	2012-11-06,rabbit
+	2012-11-06,deer
+	2012-11-06,fox
+	2012-11-07,rabbit
+	2012-11-07,bear
+
+Que texto passa por cada uma das etapas e qual o redirecionamento final?
+
+##### Exercicio 
+
+DO arquivo gerado no exercício anterior, o comando:
+
+	$ cut -d , -f 2 animals.txt
+
+usa a flag para separar cada linha por vírgulas e a flag -f para imprimir o segundo campo de cada linha, para dar o seguinte output:
+
+	deer
+	rabbit
+	raccoon
+	rabbit
+	deer
+	fox
+	rabbit
+	bear
+
+
+Qual comando pode ser adicionado a linha para encontrar os tipos de animais presentes, sem duplicação?
+
+
+##### Exercicio
+
+O arquivo animals.txt contém 586 linhas de dados formatados de forma 
+
+	2012-11-05,deer
+
+	2012-11-05,rabbit
+
+	2012-11-05,raccoon
+
+	2012-11-06,rabbit
+
+	...
+
+Assumindo que o meu diretório atual é data-shell/data/, qual comando produziria uma tabela que mostrasse a contagem total de cada tipo de animal? 
+
+
+1.  grep {deer, rabbit, raccoon, deer, fox, bear} animals.txt | wc -l
+2.  sort animals.txt | uniq -c
+3.  sort -t, -k2,2 animals.txt | uniq -c
+4.  cut -d, -f 2 animals.txt | uniq -c
+5.  cut -d, -f 2 animals.txt | sort | uniq -c
+6.  cut -d, -f 2 animals.txt | sort | uniq -c | wc -l
+
+## Nelle’s Pipeline: Checking Files
+
+Nelle criou 17 arquivos saidas da máquina no diretório north-pacific-gyre/2012-07-03. Como checagem, Nelle executou:
+
+	$ cd north-pacific-gyre/2012-07-03
+
+	$ wc -l *.txt
+
+Em seguida:
+
+	$ wc -l *.txt | sort -n | head -n 5
+
+Um dos arquivos é 60 linhas menor do que os outros. Quando ela checa o que pode ter acontecido, ela observa que realizou a análise às 8h da segunda feira, alguém pode ter utilizado a máquina no fim de semana e ela esqueceu de resetar. Antes de rodar novamente a amostra, ela confere se algum arquivo possui dados demais:
+
+	$ wc -l *.txt | sort -n | tail -n 5
+
+Por convenção, ela marca arquivos com final Z quando há informação faltando. Para encontrar outros arquivos ela pode executar:
+
+	$ ls *Z.txt
+
+Ao verificar a fonte de erros, ela percebe que esses arquivos não possuem informações sobre a profundidade dessas amostras. Como é tarde demais para obter a informação de outra maneira, ela deve excluir tais arquivos durante as análises em que a profundidade importa. Porém, como existem análises que não dependem de tal parâmetro, ela pode utilizá-los posteriormente, sem necessitar de apagá-los totalmente. Durante a análise inicial, ela pode utilizar o argumento *[AB].txt
+
+##### Exercício:
+
+Expressções do tipo wildcard podem ser bem complexas, mas podemos escreve-las utilizando sintaxes simples, ao custo de ser um pouco mais detalhadas. Consideremos o diretório: data-shell/north-pacific-gyre/2012-07-03. A expressão curinga *[AB].txt é consoante a todos os arquivos terminando em A.txt e B.txt. Imaginemos que esquecemos dessa questão.
+
+1. Podemos obter a mesma amostra de arquivos utilizando expressões curingas básicas?
+2. A expressão que achamos e a expressão da aula são similares ao mesmo grupo de arquivos. Qual é a pequena diferença entre as saidas?
+3. Em quais circunstâncias a nossa nova expressão produz uma mensagem de erro na qual a original não produziria? 
+
+
+##### Exercicio
+
+Suponha em que você deseja deletar seus arquivos de dados processados e queira apenas manter os arquivos brutos e scripts de processamento para guardar espaço em máquina. Os arquivos raw terminam em .dat e os processed em .txt. Qual dos comandos abaixo removeriam todos os arquivos de dados processados e apenas os arquivos de dados processados. 
+
+
+1.  rm ?.txt
+2.  rm *.txt
+3.  rm * .txt
+4.  rm *.*
+
+ 
 
