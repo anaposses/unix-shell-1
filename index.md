@@ -550,7 +550,117 @@ Qual dos conjuntos de comandos podem alcançar tal objetivo? O que os outros com
 	$ cp -r 2016-05-18-data/ 2016-05-20-data/
 	$ rm -r -i 2016-05-20-data/
 
+# Pipes e Filters
 
- 
+Agora que conjunto substancial de comandos, podemos finalmente por em prática a facilidade da shell em combinar programas existentes de novas maneiras. Começaremos com  diretóro **molecules** que contém 6 arquivos com albumas moléculas orgânicas simples. A extensão _.pdb_ indica que os arquivos estão no formato Protein Data Bank, que especifica o tipo e a posição de cada átomo na molécula.
+
+	$ ls molecules
+
+
+### wc
+
+Vamos entrar no diretório e rodar o comando wc. Ele é responsável por uma contagem do número de linhas, palavras e caracteres no arquivo.
+
+	$ wc *.pb
+
+* - wildcard
+? - wildcard - match apenas com um caractere (sem match com propane.pdb)
+
+	$p*.p?*
+
+Poderia ser consoante a _preferred.practice_ e p.pi, mas não com quality.practice ou preferred.p
+
+
+##### Exercicio
+
+Ao rodar o comando ls no diretório molecules/, qual comando produzirá a seguinte saida:
+
+	ethane.pdb methane.pdb
+
+
+##### Exercicio
+
+Sam possui um diretório contendo dados de calibração, conjuntos de dados e suas respectivas descrições:
+
+	2015-10-23-calibration.txt
+	2015-10-23-dataset1.txt
+	2015-10-23-dataset2.txt
+	2015-10-23-dataset_overview.txt
+	2015-10-26-calibration.txt
+	2015-10-26-dataset1.txt
+	2015-10-26-dataset2.txt
+	2015-10-26-dataset_overview.txt
+	2015-11-23-calibration.txt
+	2015-11-23-dataset1.txt
+	2015-11-23-dataset2.txt
+	2015-11-23-dataset_overview.txt
+
+
+Antes de sair de férias, ela gostaria de fazer um backup de seus dados e mandar alguns conjuntos de dados para seu colega Bob. Sam usa os seguintes comandos para ter seu trabalho feito:
+
+	$ cp *dataset* /backup/datasets
+
+	$ cp ____calibration____ /backup/calibration
+
+	$ cp 2015-____-____ ~/send_to_bob/all_november_files/
+
+	$ cp ____ ~/send_to_bob/all_datasets_created_on_a_23rd/
+
+Ajude Sam. 
+
+
+Rodando wc com a flag -l, a saida nos dá apenas o número de linhas de cada arquivo:
+
+	$ wc -l *.pdb
+Número de palavras:
+
+	$ wc -w *.pdb
+
+Número de caracteres:
+
+	$ wc -c *.pdb
+
+
+Qual dos arquivos é o menor? Quando temos milhares de arquivos, analisar uma grande quantidade em saida de tela torna-se impossível. Um primeiro passo para sanar tal problema é utilizando um comando redirecionador. > redireciona a saida do comando para um arquivo de texto. 
+
+	$ wc -l *.pdb > lengths.txt
+	
+ Não observamos nenhuma impressão em tela, devidamente pois  resultado pois guardado em um arquivo. 
+
+##### Exercícío
+
+Qual a diferença entre os parâmetros?
+
+	$ echo hello > testfile01.txt
+
+
+	$ echo hello >> testfile02.txt
+
+
+##### Exercicio
+
+Considere o arquivo data-shell/data/animals.txt, Após os comandos a seguir, selecione a resposta que corresponde ao arquivo animalsUpd.txt:
+
+	$ head -3 animals.txt > animalsUpd.txt
+
+	$ tail -2 animals.txt >> animalsUpd.txt
+
+1. The first three lines of animals.txt
+2. The last two lines of animals.txt
+3. The first three lines and the last two lines of animals.txt
+4. The second and third lines of animals.txt
+	
+ ### cat e less
+
+Agora podemos enviar o conteudo de lengths.txt para a tela utilizando cat lengths.txt. cat refere-se a ação de concatenamento: imprimi o conteudo dos arquivos um após o outro. Como apenas temos um arquivo:
+
+	$ cat lenghts.txt
+
+O comando cat imprime todos os arquivos de uma vez. Já o comando less age de maneira similar porém imprime em tela um arquivo de cada vez. Sendo a barra de espaço pressionada quando se deseja avanças, a tecla b para retornar e q para sair. 
+
+	$ cat *.pdb
+	
+	$ less *.pdb
+
 
 
