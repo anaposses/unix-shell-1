@@ -282,7 +282,70 @@ Em data-shell, acessemos seus dados com o uso do botão tab:
 
     $ ls north-pacific-gyre/2012-07-03/
 
+## Trabalhando com arquivos de diretórios
 
+### mkdir
+Criemos um novo diretório chamado __thesis utilizando o comando mkdir (make directory).
+
+	$ mkdir thesis
+
+O arquivo é criado no diretório atual
+
+	$ ls -F
+
+Caso queiramos conferir graficamente, notaremos que o arquivo encontra-se na pasta atual.
+
+**Dicas de nomes para pastas:**
+
+1. Como espaços em branco são utilizados para quebrar comandos em flags e argumentos, é interessante evitá-los.
+2. Não começar os nomes com -, pois os comandos interpretam - como uma opção.
+3. Separe paravras com pontos, traços e underlines.
+
+Caso seja necessário se referir a um nome de arquivo ou diretório com espaços, devemos utilizar "".
+
+
+Listando os arquivos em thesis, observamos que não há arquivos dentro do diretório:
+
+	$ ls -F thesis
+
+Mudemos nosso diretório de trabalho para a pasta thesis, e criemos um arquivo de texto utilizando o editor de texto Nano:
+
+	$ cd thesis
+	$ nano draft.txt
+
+O editor Nano trabalha apenas com textos, não suportando tabelas imagens ou outros tipos de mídia. É um dos editores menos complexos, porém, pode não ser tão flexível para a exigência do trabalho de Nelle. Temos outros editores como Emacs, Vim e Gedit. 
+
+Vamos escrever um pequeno texto como exemplo. Com o fim do texto, podemos pressionar Ctrl-O. Com o fim, podemos pressionar Ctrl-X(^X).
+
+Listemos a atual pasta para identificar o arquivo criado:
+
+	$ ls 
+    
+ ## Criando arquivos de outra maneira
+
+##### Exercício
+
+Tente o seguinte comando 
+
+	$ cd
+
+	$ touch my_file.txt
+
+1. O que o comando faz? Olhando o diretório utilizando a interface gráfica, o arquivo aparece?
+2. Use ls -l para inspecionar o arquivo. Qual o seu tamanho?
+3. Qual sua utilidade?
+
+## rm
+
+Retornando ao diretório data-shell, vamos remover o arquivo que criamos
+
+	$ cd thesis
+ 
+	$ rm draft.txt
+
+	$ ls
+
+O terminal do Unix não possui uma lixeira que permite recuperar arquivos deletados. Apesar de haver ferramentas para recuperar esses arquivos, não é garantido o sucesso. 
  
  
 
