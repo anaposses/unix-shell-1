@@ -68,7 +68,7 @@ Nelle Nemo, uma biologa marinha, acabou de retornar de um levantamento de seis m
 
 1. Rodar cada amostra em uma máquina de ensaio que medirá a abundância relativa de 300 proteinas diferentes. Cada saida da máquina para cada amostra é um arquivo com uma linha para cada proteina. 
 
-2. Calcular estaísticas para cada proteina separadamente usando um programa de seu supervisor denominado **goostats**.
+2. Calcular estatísticas para cada proteina separadamente usando um programa de seu supervisor denominado **goostats**.
 
 3. Anotar os resultados. 
 
@@ -84,11 +84,13 @@ Projeções:
 
 E agora????
 
-# Navegando nos arquivos e diretórios
+## Navegando nos arquivos e diretórios
+
+### pwd
 
 Para que Nelle possa cumprir seu prazo, ela utilizar do conhecimento na linguagem de linhas de comando para que sua comunicação com o computador seja mais otimizada possível. 
 
-A parte do sistema operacional responsável pelo gerenciamento de arquivos e diretóros e denominado sistema de arquivos. Nos arquivos estão localizados os dados necessários para o funcionamento o computador, e os diretórios, ou também denominados pastas, são os locais onde se encontram esses arquivos. 
+A parte do sistema operacional responsável pelo gerenciamento de arquivos e diretórios é denominada sistema de arquivos. Nos arquivos estão localizados os dados necessários para o funcionamento do computador, e os diretórios, ou também denominados pastas, são os locais onde se encontram esses arquivos. 
 
 Essas pastas e arquivos podem ser manipulados utilizando um terminal. Inicialmente, desejamos descobrir em qual diretório encontra-se o terminal, pois os comandos já discutidos agem nos arquivos de um diretório previamente dado. Podemos digitar o comando pwd (print working directory)
 
@@ -98,8 +100,9 @@ Essas pastas e arquivos podem ser manipulados utilizando um terminal. Inicialmen
 ## Organização de diretórios no sistema Unix.
 
 Para entender a saida do comando acima, discutamos como se encontra organizado o sistema de arquivos no sistema Unix. Observemos o sistema de arquivos do computador de Nelle
+<img src="home-directories.jpeg">
 
-Imagem computador de Nelle
+
 
 No topo, encontra-se o **root directory** (diretório raiz), caracterizado pelo primeiro **/**.
 
@@ -114,7 +117,8 @@ Existem portanto dois signficados para a barra /: quando aparece na frente de um
 
 Dentro da pasta \Users, observamos que existem três usuários: o de Nelle (nelle), e duas pastas referentes a sua colegas Mummy(imhotep) e Wolfram(larry). Tipicamente, ao abrir o terminal de comando, ele iniciará no diretório home. 
 
-###ls
+### ls
+
 Novamente, utilizemos o comando de listagem para observar os arquivos e pastas presentem no atual diretório.
 
         ls
@@ -143,7 +147,7 @@ Flags interessantes:
 
 ### man
 
-Tornará o terminal em uma página com a descrição do comando desejado e sua opções, e para alguns casos alguns exemplos. É necessário os botes up e down para navegar pela página. b leva ao início da página, e barra de espaço leva ao final da página. 
+Tornará o terminal em uma página com a descrição do comando desejado e sua opções, e para alguns casos alguns exemplos. É necessário os botões up e down para navegar pela página. b leva ao início da página, e barra de espaço leva ao final da página. 
 
 /palavra -> busca no man
 
@@ -161,9 +165,9 @@ O que as flags -l e -h fazem?
 
 Em que ordem ls -R -t funciona?
 
-Objetos que nao apresentam barras no fim do nome são arquivos antigos. 
+Objetos que não apresentam barras no fim do nome são **arquivos antigos**. 
 
-ALém disso, mesmo estando dentro de um determinado diretório, podemos listar o conteudo de outras pastas
+Além disso, mesmo estando dentro de um determinado diretório, podemos listar o conteudo de outras pastas
 
     $ ls -F Desktop
 
@@ -203,7 +207,7 @@ Podemos observar na saida o diretório ./, que representa o diretório atual.
 
 ./bash_profile : possue configurações da shell. Existem arquivos que iniciam com . que caracterizam-se por configurar diferentes programas presentes no computador. 
 
-Em linguagem de programação, **ortogonalidade** significa que um conjunto relativamente pequeno de construções primitivas podem ser combinadas em um número pequeno de maneiras para construir as estruturas de controle e de dados de uma linguagem.
+Em linguagem de programação, **ortogonalidade** significa que um conjunto relativamente pequeno de construções primitivas podem ser combinadas em um número de maneiras para construir as estruturas de controle e de dados de uma linguagem.
 Isso pode ser verificado com:
 
     $ ls ..
@@ -220,7 +224,7 @@ Isso pode ser verificado com:
  
      $ cd Desktop/data-shell/data
   
- Até então, utilizamos de nosso localizaço atual para navegar entre os diretórios. Porém, o comando cd permite ter como argumento de localização o diretório absoluto. Desejamos ir para a pasta data:
+ Até então, utilizamos de nosso localização atual para navegar entre os diretórios. Porém, o comando cd permite ter como argumento de localização o diretório absoluto. Desejamos ir para a pasta data:
  
   
     $ pwd
@@ -265,7 +269,7 @@ Utilizando do diagrama a seguir, se pwd mostra /Users/thing, o que  ls -F ../bac
 
 ##### Exercício:
 
-Assumando uma estrutura de diretório como a da figura acima, se pwd mostra /Users/backup, e -r ordena ls a mostrar os arquivos em ordem reversa, qual comando irá mostrar:
+Assumindo uma estrutura de diretório como a da figura acima, se pwd mostra /Users/backup, e -r ordena ls a mostrar os arquivos em ordem reversa, qual comando irá mostrar:
 
     pnas_sub/ pnas_final/ original/
 
@@ -277,12 +281,12 @@ Assumando uma estrutura de diretório como a da figura acima, se pwd mostra /Use
 
 ## Organizando arquivos:
 
-Sabendo sobre arquivos e diretórios, Nelle está pronta para organizar os arquivos que a máquina de ensaio criará. Inicialmente ela criará uma pasta **north-pacific-gyre** para lembrá-la de onde as amostras foram coletadas. Dentro dessa pasta ela cria o diretório 2012-07-03 que é relacionado a data em que ela iniciou o processamento de dados. Ela utilizava nomes como conference-paper e revised-results, mas seu significado se perdia com o passar dos anos. 
+Sabendo sobre arquivos e diretórios, Nelle está pronta para organizar os arquivos que a máquina de ensaio criará. Inicialmente ela criará uma pasta **north-pacific-gyre** para lembrá-la de onde as amostras foram coletadas. Dentro dessa pasta ela cria o diretório 2012-07-03 que é relacionado a data em que ela iniciou o processamento de dados. Ela utilizava nomes como _conference-paper_ e _revised-results_, mas seu significado se perdia com o passar dos anos. 
 
 Ela organizou por datas pois o terminal irá imprimir os arquivos por ordem alfabética. Dando nomes de meses, Dezembro virá primeiro que Julho. Além disso, utilizando os 0s, é evitado novembro 11 vir antes de Julho 7. Além disso, iniciando pelo ano, evitará que Junho 2012 venha depois de Junho 2013.
 
 
-Cada uma de suas amostras são nomeadas de acordo com uma convenço proporcionando um ID único, como NENE01729A. Esse formato foi utilizado em seus logs para registrar a localização, tempo, profundidado e outras características. Decidiu utilizar o ID como nome de seus arquivos, em formato .txt pois a saída da máquina é em formato texto. Todos os arquivos irão em um mesmo diretório.
+Cada uma de suas amostras são nomeadas de acordo com uma convenção proporcionando um ID único, como NENE01729A. Esse formato foi utilizado em seus logs para registrar a localização, tempo, profundidado e outras características. Decidiu utilizar o ID como nome de seus arquivos, em formato .txt pois a saída da máquina é em formato texto. Todos os arquivos irão em um mesmo diretório.
 
 Em data-shell, acessemos seus dados com o uso do botão tab:
 
@@ -291,7 +295,7 @@ Em data-shell, acessemos seus dados com o uso do botão tab:
 ## Trabalhando com arquivos de diretórios
 
 ### mkdir
-Criemos um novo diretório chamado __thesis utilizando o comando mkdir (make directory).
+Criemos um novo diretório chamado _thesis_ utilizando o comando mkdir (make directory).
 
 	$ mkdir thesis
 
@@ -327,7 +331,7 @@ Listemos a atual pasta para identificar o arquivo criado:
 
 	$ ls 
     
- ## Criando arquivos de outra maneira
+## Criando arquivos de outra maneira
 
 ##### Exercício
 
@@ -376,7 +380,7 @@ Tentemos remover a pasta thesis:
 O que ocorre se executemos: rm -i thesis/quotations.txt?
 Por que essa proteção é necessária?
 
-## Com grandes poderem vem grandes responsabilidades
+## Com grandes poderes vêm grandes responsabilidades
 
 A flag -i é uma boa alternativa para evitar uma perda definitiva indevida de dados. Ele criará uma necessidade de confirmar todos os arquivos e diretórios para exclusão.
 
@@ -458,15 +462,15 @@ _Um arquivo png contendo a imagem de uma baleia convertido para whale.png não t
 
 ##### Exercício:
 
-Suponhamos que você crie um arquivo .txt que contenha uma lista de testes estatísticos que você precisará fazer para analisar seus dados, nomeando-o estatupidas.txt
+Suponhamos que você crie um arquivo .txt que contenha uma lista de testes estatísticos que você precisará fazer para analisar seus dados, nomeando-o estatiticas.txt
 
 Após criar e salvar seu arquivo, percebe que escreveu o nome de forma errada. Para corrigir o problema, qual dos comandos à seguir poderem solucionar o problema?
 
 
- 1. cp statupidas.txt estatisticas.txt
- 2. mv statupidas.txt estatisticas.txt
- 3. mv statupidas.txt .
- 4. cp statupidas.txt .
+ 1. cp estatiticas.txt estatisticas.txt
+ 2. mv estatiticas.txt estatisticas.txt
+ 3. mv estatiticas.txt .
+ 4. cp estatiticas.txt .
 
 ##### Movendo e copiando 
 
@@ -494,7 +498,7 @@ Qual é a saida da sequência a seguir?
 4. proteins-saved.dat
 
 
-# Exercício: Organizando diretórios e arquivos
+##### Exercício: Organizando diretórios e arquivos
 
 Jamie está trabalhando em um projeto e percebe que seus arquivos não estão bem organizados
 
@@ -512,7 +516,7 @@ os arquivos *.dat possuem saidas de sua análise de dados. Quais comandos aprend
 
 	fructose.dat sucrose.dat
 
-# Exercício:
+##### Exercício:
 
 Testaremos comandos em data-shell/data
 
@@ -556,9 +560,9 @@ Qual dos conjuntos de comandos podem alcançar tal objetivo? O que os outros com
 	$ cp -r 2016-05-18-data/ 2016-05-20-data/
 	$ rm -r -i 2016-05-20-data/
 
-# Pipes e Filters
+## Pipes e Filters
 
-Agora que conjunto substancial de comandos, podemos finalmente por em prática a facilidade da shell em combinar programas existentes de novas maneiras. Começaremos com  diretóro **molecules** que contém 6 arquivos com albumas moléculas orgânicas simples. A extensão _.pdb_ indica que os arquivos estão no formato Protein Data Bank, que especifica o tipo e a posição de cada átomo na molécula.
+Agora com um conjunto substancial de comandos, podemos finalmente por em prática a facilidade da shell em combinar programas existentes de novas maneiras. Começaremos com  diretóro **molecules** que contém 6 arquivos com albumas moléculas orgânicas simples. A extensão _.pdb_ indica que os arquivos estão no formato Protein Data Bank, que especifica o tipo e a posição de cada átomo na molécula.
 
 	$ ls molecules
 
@@ -569,8 +573,8 @@ Vamos entrar no diretório e rodar o comando wc. Ele é responsável por uma con
 
 	$ wc *.pb
 
-* - wildcard
-? - wildcard - match apenas com um caractere (sem match com propane.pdb)
+"*" - wildcard
+"?" - wildcard - match apenas com um caractere (sem match com propane.pdb)
 
 	$p*.p?*
 
