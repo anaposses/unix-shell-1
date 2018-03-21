@@ -348,5 +348,205 @@ Retornando ao diretório data-shell, vamos remover o arquivo que criamos
 O terminal do Unix não possui uma lixeira que permite recuperar arquivos deletados. Apesar de haver ferramentas para recuperar esses arquivos, não é garantido o sucesso. 
  
  
+ Recriemos o arquivo e nos direcionaremos para o diretório anterior:
+
+	$ nano draft.txt
+
+	$ ls
+
+	$ cd ..
+
+Tentemos remover a pasta thesis:
+
+	$ rm thesis
+
+	$ rm --help
+
+	$ rm -r thesis
+
+
+##### Exercício
+
+O que ocorre se executemos: rm -i thesis/quotations.txt?
+Por que essa proteção é necessária?
+
+## Com grandes poderem vem grandes responsabilidades
+
+A flag -i é uma boa alternativa para evitar uma perda definitiva indevida de dados. Ele criará uma necessidade de confirmar todos os arquivos e diretórios para exclusão.
+
+	$ mkdir thesis
+	
+	$ touch thesis/draft.txt
+
+	$ rm -r -i thesis
+
+Novamente criemos a pasta e arquivo draft.txt
+
+	$ mkdir thesis
+
+	$ nano thesis/draft.txt
+	
+	$ ls thesis
+	
+
+### mv
+
+Como draft não é um nome muito informativo, podemos mudar seu nome com o comando mv:
+
+	$ mv thesis/draft.txt thesis/quotes.txt
+
+O primeiro argumento mostra ao comando o que iremos mover e o segundo para onde iremos mover. Apesar de realizar uma mudança, esse comando é semelhante ao ato e renomear o arquivo.
+
+	$ ls thesis
+
+O comando também funciona para diretórios. 
+
+O que ocorre para o seguinte comando?
+
+	$ mv thesis/quotes.txt .
+
+	$ ls thesis
+
+	$ ls
+
+# Exercicio 
+
+Após rodar os comandos anteriores, Jamie percebeu que ela pôs os arquivos sucrose.dat e maltose.dat nas pastas erradas:
+
+	$ ls -F
+
+	 analyzed/ raw/
+
+	$ ls -F analyzed
+
+	fructose.dat glucose.dat maltose.dat sucrose.dat
+
+	$ cd raw/
+
+Completo o comando que corrija o erro:
+
+	$ mv ___/sucrose.dat  ___/maltose.dat ___
+
+
+### cp
+
+O comando cp é similar ao mv, porém ele copia o arquivo ao invés de movê-lo. 
+
+
+	$ cp quotes.txt thesis/quotations.txt
+	$ ls . thesis
+
+
+Para provar que realizamos uma cópia deletemos quotes.txt:
+
+	$ rm quotes.txt
+	
+	$ ls quotes.txt thesis/quotations.txt
+
+
+
+Podemos perceber que todos os arquivos de Nelle possuem o formato _nome.nome_. a primeira parte refere-se ao nome sugerido pelo próprio autor do arquivo. O segundo refere-se à extensão do arquivo. Essa é uma convenção e leva o sistema a lidar com o arquivo de acordo com a extensão explicitada.
+
+_Um arquivo png contendo a imagem de uma baleia convertido para whale.png não torna-se magicamente um canto de baleias, mas leva o sistema a tentar abrir o arquivo em um reprodutor de áudio_.
+
+
+##### Exercício:
+
+Suponhamos que você crie um arquivo .txt que contenha uma lista de testes estatísticos que você precisará fazer para analisar seus dados, nomeando-o estatupidas.txt
+
+Após criar e salvar seu arquivo, percebe que escreveu o nome de forma errada. Para corrigir o problema, qual dos comandos à seguir poderem solucionar o problema?
+
+
+ 1. cp statupidas.txt estatisticas.txt
+ 2. mv statupidas.txt estatisticas.txt
+ 3. mv statupidas.txt .
+ 4. cp statupidas.txt .
+
+##### Movendo e copiando 
+
+Qual é a saida da sequência a seguir?
+
+	$ pwd
+
+	/Users/jamie/data
+
+	$ ls
+
+	proteins.dat
+
+	$ mkdir recombine
+	
+	$ mv proteins.dat recombine/
+	
+	$ cp recombine/proteins.dat ../proteins-saved.dat
+
+	$ ls
+
+1. proteins-saved.dat recombine
+2. recombine
+3. proteins.dat recombine
+4. proteins-saved.dat
+
+
+# Exercício: Organizando diretórios e arquivos
+
+Jamie está trabalhando em um projeto e percebe que seus arquivos não estão bem organizados
+
+	$ ls -F
+
+	analyzed/  fructose.dat    raw/   sucrose.dat
+
+os arquivos *.dat possuem saidas de sua análise de dados. Quais comandos aprendidos até então propiciarão o seguinte cenário?
+
+	$ ls -F
+
+	analyzed/ raw/
+
+	$ls analyzed
+
+	fructose.dat sucrose.dat
+
+# Exercício:
+
+Testaremos comandos em data-shell/data
+
+No exemplo abaixo, o que cp faz quando são dados 3 ou mais nomes de arquivos?
+
+
+	$ mkdir backup
+
+	$ cp amino-acids.txt animals.txt backup/
+
+No exemplo abaixo, o que ocorre se dermos 3 ou mais arquivos?
+
+	$ ls -F
+
+	amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/  planets.txt  salmon.txt  sunspot.txt
+
+	$ cp amino-acids.txt animals.txt morse.txt 
+
+
+##### Exercício
+
+Você está iniciando um novo experimento, e gostaria de duplicar a estrutura de arquivos de seu experimento anterior sem os arquivos de dados de forma que voce possa adicionar novos dados.
+
+Assumindo que a estrutura de arquivos esteja em um arquivo denominado ‘2016-05-18-data’ que contém pastas chamadas raw e processed que contêm arquivos de dados.
+
+Qual dos conjuntos de comandos podem alcançar tal objetivo? O que os outros comandos podem fazer?
+
+
+$ cp -r 2016-05-18-data/ 2016-05-20-data/
+$ rm 2016-05-20-data/raw/*
+$ rm 2016-05-20-data/processed/*
+
+$ rm 2016-05-20-data/raw/*
+$ rm 2016-05-20-data/processed/*
+$ cp -r 2016-05-18-data/ 2016-5-20-data/
+
+$ cp -r 2016-05-18-data/ 2016-05-20-data/
+$ rm -r -i 2016-05-20-data/
+
+
+ 
 
 
