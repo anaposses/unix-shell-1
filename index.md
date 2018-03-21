@@ -58,6 +58,12 @@ Cada comando é um programa alocado em algum lugar do computador, sendo que a sh
 
 ## Nelle's Pipeline
 
+
+<img src="Dimpy-3.jpg" width=300 height=200>
+<img src="caravela.jpg" width=400 height=200>
+<img src="index.jpeg" width=200 height=200>
+
+
 Nelle Nemo, uma biologa marinha, acabou de retornar de um levantamento de seis meses no _Giro Pacífico Norte_, onde estava pegando amostras de vida marinha gelatinosa na  _Grande Porção de Lixo do Pacífico_. Ela conseguiu 1520 amostras e agora precisa de:
 
 1. Rodar cada amostra em uma máquina de ensaio que medirá a abundância relativa de 300 proteinas diferentes. Cada saida da máquina para cada amostra é um arquivo com uma linha para cada proteina. 
