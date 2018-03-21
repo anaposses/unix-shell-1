@@ -576,7 +576,7 @@ Vamos entrar no diretório e rodar o comando wc. Ele é responsável por uma con
 "*" - wildcard
 "?" - wildcard - match apenas com um caractere (sem match com propane.pdb)
 
-	$p*.p?*
+	$ p*.p?*
 
 Poderia ser consoante a _preferred.practice_ e p.pi, mas não com quality.practice ou preferred.p
 
@@ -635,7 +635,7 @@ Qual dos arquivos é o menor? Quando temos milhares de arquivos, analisar uma gr
 
 	$ wc -l *.pdb > lengths.txt
 	
- Não observamos nenhuma impressão em tela, devidamente pois  resultado pois guardado em um arquivo. 
+ Não observamos nenhuma impressão em tela, devidamente pois  resultado foi guardado em um arquivo. 
 
 ##### Exercícío
 
@@ -660,13 +660,13 @@ Considere o arquivo data-shell/data/animals.txt, Após os comandos a seguir, sel
 3. The first three lines and the last two lines of animals.txt
 4. The second and third lines of animals.txt
 	
- ### cat e less
+### cat e less
 
 Agora podemos enviar o conteudo de lengths.txt para a tela utilizando cat lengths.txt. cat refere-se a ação de concatenamento: imprimi o conteudo dos arquivos um após o outro. Como apenas temos um arquivo:
 
 	$ cat lenghts.txt
 
-O comando cat imprime todos os arquivos de uma vez. Já o comando less age de maneira similar porém imprime em tela um arquivo de cada vez. Sendo a barra de espaço pressionada quando se deseja avanças, a tecla b para retornar e q para sair. 
+O comando cat imprime todos os arquivos de uma vez. Já o comando less age de maneira similar porém imprime em tela um arquivo de cada vez. Sendo a barra de espaço pressionada quando se deseja avançar, a tecla b para retornar e q para sair. 
 
 	$ cat *.pdb
 	
@@ -740,7 +740,7 @@ Para facilitar o entendimento da manipulação desses comandos (wc, sort e head)
 
         $ sort -n lengths.txt | head -n 1
         
-A barra vertical | é denominada **pipe** e diz ao terminal que queremos que a saida de um comando seja a entrada de outro a direita. 
+A barra vertical _|_ é denominada **pipe** e diz ao terminal que queremos que a saida de um comando seja a entrada de outro a direita. 
 
 Podemos realizar o uso de pipelines consecutivamente:
 
