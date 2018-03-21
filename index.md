@@ -59,7 +59,7 @@ Cada comando é um programa alocado em algum lugar do computador, sendo que a sh
 ## Nelle's Pipeline
 
 
-<img src="Dimpy-3.jpg" width=300 height=200>
+<img src="Dimpy-3.jpg" alt="hi"  class="inline">
 <img src="caravela.jpg" width=400 height=200>
 <img src="index.jpeg" width=200 height=200>
 
