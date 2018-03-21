@@ -226,7 +226,7 @@ Isso pode ser verificado com:
  
     $ pwd ~ 
  
-Outro arumento interessante é - : diretório anterior que eu estava
+Outro argumento interessante é - : diretório anterior que eu estava
 
     $ pwd -
     
@@ -236,7 +236,7 @@ Outro arumento interessante é - : diretório anterior que eu estava
 
 ##### Exercício
 
-Starting from /Users/amanda/data/, which of the following commands could Amanda use to navigate to her home directory, which is /Users/amanda?
+Iniciando de /Users/amanda/data/, qual dos comandos a seguir levariam Amanda a navegar para o diretório home?
 
     cd .
     cd /
@@ -250,15 +250,37 @@ Starting from /Users/amanda/data/, which of the following commands could Amanda 
 
 ##### Exercício:
 
-Using the filesystem diagram below, if pwd displays /Users/thing, what will ls -F ../backup display?
+Utilizando do diagrama a seguir, se pwd mostra /Users/thing, o que  ls -F ../backup imprimirá?
 
 1. ../backup: No such file or directory
 2. 2012-12-01 2013-01-08 2013-01-27
 3. 2012-12-01/ 2013-01-08/ 2013-01-27/
 4. original/ pnas_final/ pnas_sub/
 
+##### Exercício:
+
+Assumando uma estrutura de diretório como a da figura acima, se pwd mostra /Users/backup, e -r ordena ls a mostrar os arquivos em ordem reversa, qual comando irá mostrar:
+
+    pnas_sub/ pnas_final/ original/
 
 
+1. ls pwd
+2. ls -r -F
+3.  ls -r -F /Users/backup
+4.  Either #2 or #3 above, but not #1.
+
+## Organizando arquivos:
+
+Sabendo sobre arquivos e diretórios, Nelle está pronta para organizar os arquivos que a máquina de ensaio criará. Inicialmente ela criará uma pasta **north-pacific-gyre** para lembrá-la de onde as amostras foram coletadas. Dentro dessa pasta ela cria o diretório 2012-07-03 que é relacionado a data em que ela iniciou o processamento de dados. Ela utilizava nomes como conference-paper e revised-results, mas seu significado se perdia com o passar dos anos. 
+
+Ela organizou por datas pois o terminal irá imprimir os arquivos por ordem alfabética. Dando nomes de meses, Dezembro virá primeiro que Julho. Além disso, utilizando os 0s, é evitado novembro 11 vir antes de Julho 7. Além disso, iniciando pelo ano, evitará que Junho 2012 venha depois de Junho 2013.
+
+
+Cada uma de suas amostras são nomeadas de acordo com uma convenço proporcionando um ID único, como NENE01729A. Esse formato foi utilizado em seus logs para registrar a localização, tempo, profundidado e outras características. Decidiu utilizar o ID como nome de seus arquivos, em formato .txt pois a saída da máquina é em formato texto. Todos os arquivos irão em um mesmo diretório.
+
+Em data-shell, acessemos seus dados com o uso do botão tab:
+
+    $ ls north-pacific-gyre/2012-07-03/
 
 
  
