@@ -662,5 +662,109 @@ O comando cat imprime todos os arquivos de uma vez. Já o comando less age de ma
 	
 	$ less *.pdb
 
+### sort
+
+##### Exercicio:
+
+Se rodarmos sort em um arquivo contendo as seguintes linhas:
+
+
+	10
+
+	2
+
+	19
+
+	22
+
+	6
+
+
+A saida é 
+
+	10
+
+	2
+
+	19
+
+	22
+
+	6
+
+
+Se nós rodarmos sort -n no mesmo arquivo, temos:
+
+	2
+
+	6
+
+	10
+
+	19
+
+	22
+
+
+Qual a diferença?
+
+
+Utilizamos portanto sort -n
+
+	$ sort -n lengths.txt
+
+Podemos colocar a lista ordenada de linhas em outro arquivo temporário denominado _sorted-lengths.txt_ ao colocar _> sorted-lengths.txt_ depois do comando, assim como usamos > lengths.txt. Uma vez que fizemos isso, podemos rodar o comando head para pegar as primeiras linhas de sorted-lenghts.txt
+
+	$ sort -n lengths.txt > sorted-lengths.txt
+
+	$ head -n 1 sorted-lengths.txt
+
+
+Não é uma boa ideia realizar o seguinte comando:
+
+	$ sort -n lengths.txt > lengths.txt
+	
+Pode gerar resultados incorretos ou o sumiço dos dados originais.
+
+Para facilitar o entendimento da manipulação desses comandos (wc, sort e head), podemos aglutinar tais comandos em:
+
+        $ sort -n lengths.txt | head -n 1
+        
+A barra vertical | é denominada **pipe** e diz ao terminal que queremos que a saida de um comando seja a entrada de outro a direita. 
+
+Podemos realizar o uso de pipelines consecutivamente:
+
+        $ wc -l *.pdb | sort -n
+        
+	$ wc -l *.pdb | sort -n | head -n 1
+	
+
+##### Exercicio
+
+Em nosso diretório, nós queremos encontrar 3 arquivos que tenha o menor número de linhas. Qual comandos podem funcionar?
+
+
+ 1.  wc -l * > sort -n > head -n 3
+ 2. wc -l * | sort -n | head -n 1-3
+ 3. wc -l * | head -n 3 | sort -n
+ 4. wc -l * | sort -n | head -n 3
+ 
+ 
+ESCREVER ESSA PARTE AE QUE TA FALTANDO
+
+Assim como > redireciona a saida do programa, < redireciona sua entrada, ou seja, de ler de um arquivo ao invés de uma entrada padrão. 
+
+# Exercicio
+
+	$ cd ..
+
+Qual a diferença entre:
+
+     $ wc -l notes.txt
+
+e
+
+	$ wc -l < notes.txt
+
 
 
