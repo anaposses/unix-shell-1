@@ -160,3 +160,100 @@ Objetos que nao apresentam barras no fim do nome são arquivos antigos.
 ALém disso, mesmo estando dentro de um determinado diretório, podemos listar o conteudo de outras pastas
 
     $ ls -F Desktop
+
+Portanto, para utilizar o terminal, temos que ter em mente que os arquivos estão organizados de forma hierárquica o que nos ajuda a acompanhar os passos de nosso trabalho. Agora sabemos que o diretório _data-shell_ está localizado no Desktop. Podemos realizar duas ações:
+
+### cd
+
+Inicialmente, podemos olhar para o seu conteúdo, utilizando a mesma estratégia que antes:
+
+    $ ls -F Desktop/data-shell
+ 
+Além disso, podemos mudar nossa localização para um diretório diferente. 
+
+cd - change directory - não é mudado o diretório, mas a ideia do terminal de qual diretório estamos. 
+
+    $ cd Desktop
+    
+    $ cd data-shell
+    
+    $ cd data
+
+    $ pwd
+    
+    $ ls -F
+ 
+ Porém, como retornamos para os diretórios anteriores?
+ 
+    $ cd ..
+    
+ O diretório .. não aparece quando damos um ls. Para observá-lo, podemos fazer:
+ 
+    $ ls -F -a
+ 
+-a está relacionado a mostrar todos os arquivos, inclusive os escondidos. 
+
+Podemos observar na saida o diretório ./, que representa o diretório atual. 
+
+./bash_profile : possue configurações da shell. Existem arquivos que iniciam com . que caracterizam-se por configurar diferentes programas presentes no computador. 
+
+Em linguagem de programação, **ortogonalidade** significa que um conjunto relativamente pequeno de construções primitivas podem ser combinadas em um número pequeno de maneiras para construir as estruturas de controle e de dados de uma linguagem.
+Isso pode ser verificado com:
+
+    $ ls ..
+    
+ Esses portanto são os comandos mais básicos para navegar no sistema de arquivos de Unix.
+ 
+ O que acontece caso executemos:
+ 
+    $ cd
+    
+    $ pwd
+    
+ Retornemos ao arquivo data como anteriormente:
+ 
+     $ cd Desktop/data-shell/data
+  
+ Até então, utilizamos de nosso localizaço atual para navegar entre os diretórios. Porém, o comando cd permite ter como argumento de localização o diretório absoluto. Desejamos ir para a pasta data:
+ 
+  
+    $ pwd
+    
+    $ cd /Users/nelle/Desktop/data-shell
+  
+
+ Outro argumento interessante é o ~: atual diretório home do usuário. No caso de Nelle:
+ 
+    $ pwd ~ 
+ 
+Outro arumento interessante é - : diretório anterior que eu estava
+
+    $ pwd -
+    
+    $ cd - 
+    
+* .. vs -: .. leva para diretório mãe do atual e - leva ao anterior.
+
+##### Exercício
+
+Starting from /Users/amanda/data/, which of the following commands could Amanda use to navigate to her home directory, which is /Users/amanda?
+
+    cd .
+    cd /
+    cd /home/amanda
+    cd ../..
+    cd ~
+    cd home
+    cd ~/data/..
+    cd
+    cd ..
+
+
+
+
+
+
+ 
+ 
+
+
